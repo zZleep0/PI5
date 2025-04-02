@@ -3,7 +3,7 @@ using UnityEngine;
 public class DragAndRotate : MonoBehaviour
 {
     public bool isActive = false;
-    Color activeColor = new Color();
+    public Color activeColor = new Color();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,7 @@ public class DragAndRotate : MonoBehaviour
 
                 if (screenTouch.phase == TouchPhase.Moved)
                 {
-                    transform.Rotate(0f, screenTouch.deltaPosition.x, 0f);
+                    transform.Rotate(0f, 0f, -screenTouch.deltaPosition.x);
                 }
 
                 if (screenTouch.phase == TouchPhase.Ended)
