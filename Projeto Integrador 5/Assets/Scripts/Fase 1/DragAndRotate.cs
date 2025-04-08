@@ -2,13 +2,12 @@ using UnityEngine;
 
 public class DragAndRotate : MonoBehaviour
 {
+
     public bool isActive = false;
-    public Color activeColor = new Color();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GetComponent<MeshRenderer>().material.color = activeColor;
     }
 
     // Update is called once per frame
@@ -16,15 +15,13 @@ public class DragAndRotate : MonoBehaviour
     {
         if (isActive)
         {
-            activeColor = Color.yellow;
-
             if (Input.touchCount == 1)
             {
                 Touch screenTouch = Input.GetTouch(0);
 
                 if (screenTouch.phase == TouchPhase.Moved)
                 {
-                    transform.Rotate(0f, 0f, -screenTouch.deltaPosition.x);
+                    transform.Rotate(0f, screenTouch.deltaPosition.x, 0f);
                 }
 
                 if (screenTouch.phase == TouchPhase.Ended)
@@ -33,11 +30,5 @@ public class DragAndRotate : MonoBehaviour
                 }
             }
         }
-        else
-        {
-            activeColor = Color.white;
-        }
-
-        
     }
 }

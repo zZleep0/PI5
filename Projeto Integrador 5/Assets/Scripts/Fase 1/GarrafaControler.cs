@@ -2,37 +2,49 @@ using UnityEngine;
 
 public class GarrafaControler : MonoBehaviour
 {
+    public float rotacaoMin = 0f;
+    public float rotacaoMax = 0f;
+
     public float qtdAgua = 20f;
     public ParticleSystem aguaParticula;
 
-    public float rotacaoZ;
+    public float rotacaoX;
+
+    public bool vazio = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         aguaParticula = GetComponentInChildren<ParticleSystem>();
-        aguaParticula.gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        rotacaoZ = transform.eulerAngles.z;
+        rotacaoX = transform.eulerAngles.x; // Usa transform.eulerAngles para acessar a rotação de Euler
 
-        // Usa transform.eulerAngles para acessar a rotação de Euler
-        if (rotacaoZ >= 135 && rotacaoZ <= 225/* && qtdAgua > 0*/) // Ajuste do intervalo para evitar inconsistências de rotação
+        var mainmodule = aguaParticula.main;
+
+        if (rotacaoX >= rotacaoMin && rotacaoX <= rotacaoMax && qtdAgua > 0) // Ajuste do intervalo para evitar inconsistências de rotação
         {
             qtdAgua = qtdAgua - Time.deltaTime * 2;
-            aguaParticula.gameObject.SetActive(true);
+
+            mainmodule.startLifetime = 3f;
+
             Debug.Log("Está derramando água");
-
-
-
         }
         else
         {
-            aguaParticula.gameObject.SetActive(false);
+            mainmodule.startLifetime = 0f;
+            
             Debug.Log("Não está derramando água");
+        }
+
+        if (qtdAgua <= 0)
+        {
+            qtdAgua = 0;
+            vazio = true;
         }
     }
 }
