@@ -15,7 +15,7 @@ public class DragAndRotate : MonoBehaviour
     {
         if (isActive)
         {
-            if (Input.touchCount == 1)
+            if (Input.touchCount == 1 || Input.GetMouseButtonDown(0))
             {
                 Touch screenTouch = Input.GetTouch(0);
 

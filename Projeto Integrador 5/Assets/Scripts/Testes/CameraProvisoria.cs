@@ -38,6 +38,7 @@ public class CameraProvisoria : MonoBehaviour
                     {
                         var objectScript = hit.collider.GetComponent<DragAndRotate>();
                         objectScript.isActive = !objectScript.isActive;
+                        Debug.Log("tocou no objeto");
 
                         touchedObject = true; // MARCA que tocou num objeto interativo
                     }
