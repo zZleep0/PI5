@@ -54,6 +54,8 @@ public class ButtonManager : MonoBehaviour
                     if (cenaAtual >= 2)
                         btn.onClick.AddListener(ProximoNivel);
                     break;
+
+                
             }
         }
 
