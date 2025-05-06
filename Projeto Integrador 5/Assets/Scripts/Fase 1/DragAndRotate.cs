@@ -15,7 +15,7 @@ public class DragAndRotate : MonoBehaviour
     {
         if (isActive)
         {
-            if (Input.touchCount == 1 || Input.GetMouseButtonDown(0))
+            if (Input.touchCount == 1)
             {
                 Touch screenTouch = Input.GetTouch(0);
 
@@ -29,6 +29,19 @@ public class DragAndRotate : MonoBehaviour
                     isActive = false;
                 }
             }
+
+            //Teste com mouse no simulador
+            //else if (Input.GetMouseButton(0)) // Botão esquerdo pressionado
+            //{
+            //    float mouseDeltaX = Input.GetAxis("Mouse X");
+
+            //    transform.Rotate(0f, mouseDeltaX * 5f, 0f); // Multiplique para ajustar a sensibilidade
+
+            //    if (Input.GetMouseButtonUp(0)) // Soltou o botão do mouse
+            //    {
+            //        isActive = false;
+            //    }
+            //}
         }
     }
 }

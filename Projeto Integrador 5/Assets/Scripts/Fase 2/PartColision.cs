@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class PartColision : MonoBehaviour
 {
-
+    public WinConditionFase2 winCon;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,8 +16,9 @@ public class PartColision : MonoBehaviour
         //Debug.Log("colidiu com " + other.name);
         if (other.CompareTag("Mosquito"))
         {
-            Destroy(other);
             Debug.Log("hitou mosquito");
+            winCon.pontos++;
+            Destroy(other);
         }
     }
 }

@@ -15,15 +15,15 @@ public class MosquitoController : MonoBehaviour
     {
         //Mover até a camera do jogador
         transform.position = Vector3.MoveTowards(transform.position, Camera.main.transform.position, velocidade * Time.deltaTime);
-
+        transform.LookAt(Camera.main.transform.position);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.CompareTag("Player"))
-        {
-            Debug.Log("player tomou dano");
-            Destroy(gameObject);
-        }
-    }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.collider.CompareTag("Player"))
+    //    {
+    //        Debug.Log("player tomou dano");
+    //        Destroy(gameObject);
+    //    }
+    //}
 }

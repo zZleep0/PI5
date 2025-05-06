@@ -29,5 +29,21 @@ public class ActivateObject : MonoBehaviour
                 }
             }
         }
+
+        //PARA TESTES NO SIMULADOR
+        //else if (Input.GetMouseButtonDown(0)) // Clique do mouse
+        //{
+        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        //    RaycastHit hit;
+
+        //    if (Physics.Raycast(ray, out hit))
+        //    {
+        //        if (hit.transform.tag == "DragAndRotate")
+        //        {
+        //            var objectScript = hit.collider.GetComponent<DragAndRotate>();
+        //            objectScript.isActive = !objectScript.isActive;
+        //        }
+        //    }
+        //}
     }
 }
