@@ -8,7 +8,6 @@ public class ButtonManager : MonoBehaviour
 {
     public int cenaAtual;
 
-
     private void Start()
     {
         cenaAtual = SceneManager.GetActiveScene().buildIndex;
@@ -115,6 +114,4 @@ public class ButtonManager : MonoBehaviour
     }
 
     #endregion
-
-    
 }

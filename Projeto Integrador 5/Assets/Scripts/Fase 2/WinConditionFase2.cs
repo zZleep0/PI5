@@ -12,6 +12,8 @@ public class WinConditionFase2 : MonoBehaviour
     public TextMeshProUGUI txtPontos;
     public TextMeshProUGUI txtVida;
 
+    public SoundManager soundManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +31,7 @@ public class WinConditionFase2 : MonoBehaviour
         {
             pontos = 10;
             pnlVitoria.SetActive(true);
+            soundManager.SomVictory();
         }
 
         if (vida <= 0)

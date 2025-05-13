@@ -9,6 +9,8 @@ public class WinConditionFase1 : MonoBehaviour
     public bool fimFase = false;
     public GameObject pnlVitoria;
 
+    public SoundManager soundManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,6 +36,7 @@ public class WinConditionFase1 : MonoBehaviour
         {
             fimFase = true;
             pnlVitoria.SetActive(true);
+            soundManager.SomVictory();
         }
     }
 
