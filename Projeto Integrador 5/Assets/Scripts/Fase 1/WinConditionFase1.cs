@@ -1,8 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WinConditionFase1 : MonoBehaviour
 {
+    public Slider progressBar;
+
     public int pontuacao = 0;
     public List<GarrafaControler> garrafaController;
 
@@ -27,17 +30,30 @@ public class WinConditionFase1 : MonoBehaviour
                 garrafaController.Add(controler);
             }
         }
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        pontuacao = 0;
+
+        foreach (var garrafa in garrafaController)
+        {
+            pontuacao += (int)garrafa.qtdAgua;
+        }
+
+        progressBar.value = pontuacao;
+
+        //FIM DA FASE
         if (!fimFase && TodasGarrafasVazias())
         {
             fimFase = true;
             pnlVitoria.SetActive(true);
             soundManager.SomVictory();
         }
+        
     }
 
     bool TodasGarrafasVazias()

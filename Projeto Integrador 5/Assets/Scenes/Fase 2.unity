@@ -5723,6 +5723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winCon: {fileID: 902583594}
+  mosquitoPart: {fileID: 7817846355913623916, guid: 5f1f42b0966459c4b9806bfaa5aa9f50, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

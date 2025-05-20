@@ -5,6 +5,8 @@ public class PartColision : MonoBehaviour
 {
     public WinConditionFase2 winCon;
 
+    public GameObject mosquitoPart;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +20,7 @@ public class PartColision : MonoBehaviour
         {
             Debug.Log("hitou mosquito");
             winCon.pontos++;
+            Instantiate(mosquitoPart, other.transform.position, Quaternion.identity);
             Destroy(other);
         }
     }
