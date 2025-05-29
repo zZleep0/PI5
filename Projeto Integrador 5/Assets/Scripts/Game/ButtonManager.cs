@@ -109,7 +109,7 @@ public class ButtonManager : MonoBehaviour
 
     public void ProximoNivel()
     {
-        SceneManager.LoadScene(cenaAtual++);
+        SceneManager.LoadScene(cenaAtual + 1);
         Debug.Log("Foi para o proximo");
     }
 
