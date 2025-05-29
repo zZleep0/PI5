@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class SprayController : MonoBehaviour
 {
     public ParticleSystem sprayPart;
+    public GameObject aerosol;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +19,7 @@ public class SprayController : MonoBehaviour
 
         if (Input.touchCount > 0 || Input.GetMouseButton(0))
         {
+            aerosol.SetActive(true);
             mainModule.startLifetime = 2;
             //if (Input.touches[0].phase == TouchPhase.Began)
             //{
@@ -26,6 +28,7 @@ public class SprayController : MonoBehaviour
         }
         else
         {
+            aerosol.SetActive(false);
             mainModule.startLifetime = 0;
         }
     }

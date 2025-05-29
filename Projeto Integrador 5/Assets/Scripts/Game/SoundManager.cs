@@ -7,6 +7,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource audioSource;
     public List<AudioClip> clipList;
 
+    public VolumeManager volumeManager;
+
     public enum SoundType
     {
         TypeVictory,
@@ -17,6 +19,13 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+
+
+        volumeManager = GameObject.Find("VolumeManager").GetComponent<VolumeManager>();
+        if (volumeManager != null)
+        {
+            audioSource.mute = volumeManager.silenciar;
+        }
     }
 
     public void PlaySound(SoundType clipType)

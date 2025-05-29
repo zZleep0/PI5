@@ -11,39 +11,46 @@ public class ActivateObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.touchCount > 0)
+        //PARA MOBILE
+        //if (Input.touchCount > 0)
+        //{
+        //    if (Input.touches[0].phase == TouchPhase.Began)
+        //    {
+        //        Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
+
+        //        RaycastHit hit;
+
+        //        if (Physics.Raycast(ray, out hit))
+        //        {
+        //            if (hit.transform.tag == "DragAndRotate")
+        //            {
+        //                var objectScript = hit.collider.GetComponent<DragAndRotate>();
+        //                objectScript.isActive = !objectScript.isActive;
+        //            }
+        //        }
+        //    }
+        //}
+
+        //PC
+        if (Input.GetMouseButtonDown(0)) // Clique do mouse
         {
-            if (Input.touches[0].phase == TouchPhase.Began)
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit))
             {
-                Ray ray = Camera.main.ScreenPointToRay(Input.touches[0].position);
-
-                RaycastHit hit;
-
-                if (Physics.Raycast(ray, out hit))
+                if (hit.transform.tag == "DragAndRotate")
                 {
-                    if (hit.transform.tag == "DragAndRotate")
+                    var objectScript = hit.collider.GetComponent<DragAndRotate>();
+                    if (objectScript != null)
                     {
-                        var objectScript = hit.collider.GetComponent<DragAndRotate>();
                         objectScript.isActive = !objectScript.isActive;
+                        Debug.Log("isActive agora é: " + objectScript.isActive);
                     }
                 }
             }
         }
 
-        //PARA TESTES NO SIMULADOR
-        //else if (Input.GetMouseButtonDown(0)) // Clique do mouse
-        //{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
-
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        if (hit.transform.tag == "DragAndRotate")
-        //        {
-        //            var objectScript = hit.collider.GetComponent<DragAndRotate>();
-        //            objectScript.isActive = !objectScript.isActive;
-        //        }
-        //    }
-        //}
+        
     }
 }
