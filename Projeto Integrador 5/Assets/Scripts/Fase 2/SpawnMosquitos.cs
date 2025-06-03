@@ -19,7 +19,7 @@ public class SpawnMosquitos : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (winCon.vida <= 0 || winCon.pontos >= 20)
+        if (winCon.pontos >= 10)
         {
             Debug.Log("parou");
             canSpawn = false;

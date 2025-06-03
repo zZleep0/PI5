@@ -18,12 +18,12 @@ public class MosquitoController : MonoBehaviour
         transform.LookAt(Camera.main.transform.position);
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.collider.CompareTag("Player"))
-    //    {
-    //        Debug.Log("player tomou dano");
-    //        Destroy(gameObject);
-    //    }
-    //}
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            Debug.Log("player tomou dano");
+            Destroy(gameObject);
+        }
+    }
 }

@@ -4,10 +4,8 @@ using UnityEngine;
 public class WinConditionFase2 : MonoBehaviour
 {
     public int pontos = 0;
-    public int vida = 5;
 
     public GameObject pnlVitoria;
-    public GameObject pnlDerrota;
 
     public TextMeshProUGUI txtPontos;
     public TextMeshProUGUI txtVida;
@@ -17,7 +15,6 @@ public class WinConditionFase2 : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        pnlDerrota.SetActive(false);
         pnlVitoria.SetActive(false);
     }
 
@@ -25,19 +22,12 @@ public class WinConditionFase2 : MonoBehaviour
     void Update()
     {
         txtPontos.text = "Pontos: " + pontos;
-        txtVida.text = "Vida: " + vida;
 
         if (pontos >= 10)
         {
             pontos = 10;
             pnlVitoria.SetActive(true);
             soundManager.SomVictory();
-        }
-
-        if (vida <= 0)
-        {
-            vida = 0;
-            pnlDerrota.SetActive(true);
         }
     }
 }
